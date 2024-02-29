@@ -3,8 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAuth, login, logout } from './redux/authSlice';
+
 function App() {
-  const [count, setCount] = useState(0)
+  const dispatch = useDispatch();
+
+  const auth = useSelector(selectAuth);
+
 
   return (
     <>
@@ -18,12 +24,10 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <button onClick={() => dispatch(login({name: 'John Doe'}))}>Login</button>
+        <button onClick={() => dispatch(logout())}>Logout</button>
+        <h2>Auth state</h2>
+        <pre>{JSON.stringify(auth, null, 2)}</pre>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
