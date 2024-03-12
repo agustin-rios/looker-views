@@ -11,6 +11,8 @@ import {
 import { routes } from './routes'
 
 function App() {
+  // test if .env is working
+  // console.log(import.meta.env.VITE_LOOKER_HOST);
   return (
     <Router>
       <Routes>

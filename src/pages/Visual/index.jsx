@@ -4,6 +4,8 @@ import '../../App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuth, login, logout } from '../../redux/authSlice';
 
+import { sdk } from '../../helpers/EmbedInit';
+
   
 export const Home = () => {
     const dispatch = useDispatch();
